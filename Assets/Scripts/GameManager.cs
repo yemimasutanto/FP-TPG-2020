@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform constructorPos;
     [SerializeField] private Grid grid;
     [SerializeField] private float moveTime;
+    [SerializeField] private float speedUp;
+    [SerializeField] private float minDelay;
 
     private List<GameObject> theBag = new List<GameObject>();
     private float moveTimeSeconds;
@@ -67,5 +69,14 @@ public class GameManager : MonoBehaviour
         Group tempGroup = Instantiate(temp, tempPos, Quaternion.identity).GetComponent<Group>();
         tempGroup.Setup(grid);
         currentGroup = tempGroup;
+    }
+
+    public void SpeedUp()
+    {
+        moveTime -= speedUp;
+        if(moveTime <= minDelay)
+        {
+            moveTime = minDelay;
+        }
     }
 }

@@ -10,8 +10,10 @@ public class Grid : MonoBehaviour
     [SerializeField] private int rowValue;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private ScoreManager scoreManager;
+    [SerializeField] private int rowsPerLevel = 20;
 
     private int streak = 1;
+    private int numRows = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -113,9 +115,15 @@ public class Grid : MonoBehaviour
                 i--;
                 scoreManager.IncreaseScore(rowValue * streak);
                 streak += 1;
+                numRows += 1;
             }
         }
         streak = 1;
+        if(numRows / rowsPerLevel >= 1)
+        {
+            numRows = 0;
+            gameManager.SpeedUp();
+        }
     }
 
     void DeleteRow(int row)

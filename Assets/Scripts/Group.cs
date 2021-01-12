@@ -5,11 +5,17 @@ using UnityEngine;
 public class Group : MonoBehaviour
 {
     [SerializeField] public GameObject[] blocks;
+    [SerializeField] private float moveDelay;
+    [SerializeField] private float moveDelta;
+
+    private float moveDelayCounter;
+    private bool canMove = true;
     private bool isActive = true;
     private Grid grid;
 
     public void Setup(Grid newGrid)
     {
+        moveDelayCounter = moveDelay;
         grid = newGrid;
     }
 
@@ -92,29 +98,32 @@ public class Group : MonoBehaviour
         {
             return;
         }
-        
-        if(Input.GetKeyDown(KeyCode.UpArrow))
+        moveDelayCounter -= Time.deltaTime;
+        if(Input.GetKey(KeyCode.UpArrow) && moveDelayCounter <= 0)
         {
             Rotate(90);
+            moveDelayCounter -= moveDelta;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) && moveDelayCounter <= 0)
         {
             Move(Vector2.left);
             if (!isValidPosition())
             {
                 Move(Vector2.right);
             }
+            moveDelayCounter -= moveDelta;
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) && moveDelayCounter <= 0)
         {
             Move(Vector2.right);
             if (!isValidPosition())
             {
                 Move(Vector2.left);
             }
+            moveDelayCounter -= moveDelta;
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow) && moveDelayCounter <= 0)
         {
             Move(Vector2.down);
             if (!isValidPosition())
@@ -124,7 +133,11 @@ public class Group : MonoBehaviour
                 grid.LandPiece(this);
                 isActive = false;
             }
+            moveDelayCounter -= moveDelta;
         }
-
+        if(moveDelayCounter <= 0)
+        {
+            moveDelayCounter = moveDelay;
+        }
     }
 }

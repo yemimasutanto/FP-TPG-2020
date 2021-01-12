@@ -328,7 +328,9 @@ MonoBehaviour:
   - {fileID: 6518870557868309299, guid: 3d3569de31dcfb548a13f6ec0ea740d7, type: 3}
   constructorPos: {fileID: 1458344434}
   grid: {fileID: 2123575607}
-  moveTime: 1
+  moveTime: 0.5
+  speedUp: 0.02
+  minDelay: 0.02
 --- !u!114 &666862068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -871,6 +873,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 10
   height: 16
-  rowValue: 10
+  rowValue: 1
   gameManager: {fileID: 666862067}
   scoreManager: {fileID: 666862068}
+  rowsPerLevel: 1
