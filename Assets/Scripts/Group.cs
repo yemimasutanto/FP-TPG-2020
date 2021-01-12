@@ -28,19 +28,21 @@ public class Group : MonoBehaviour
     void Rotate(int rotateAmount)
     {
         transform.Rotate(0f, 0f, rotateAmount);
-        
+        RotateChildren(-rotateAmount);
         if(!isValidPosition())
         {
             transform.Rotate(0f, 0f, -rotateAmount);
+            RotateChildren(rotateAmount);
         }
         RoundPosition();
-        /*
+    }
+
+    void RotateChildren(int amount)
+    {
         for(int i = 0; i < blocks.Length; i++)
         {
-            blocks[i].transform.Rotate(0f, 0f, -rotateAmount);
-            blocks[i].transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Round(transform.eulerAngles.z));
+            blocks[i].transform.Rotate(0f, 0f, amount);
         }
-        */
     }
 
     public void GameManagerMove(Vector2 moveDirection)
