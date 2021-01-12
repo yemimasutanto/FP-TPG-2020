@@ -28,6 +28,9 @@ public class Grid : MonoBehaviour
             // Store each block in the grid.
             StoreBlockInGrid(piece.blocks[i]);
         }
+
+        DeleteFullRows();
+
         if (gameManager)
         {
             gameManager.ConstructPiece();
@@ -120,6 +123,7 @@ public class Grid : MonoBehaviour
         {
             // grid[i, row].SpecialEffect();
             Destroy(grid[i, row].gameObject);
+            grid[i, row] = null;
         }
     }
 
