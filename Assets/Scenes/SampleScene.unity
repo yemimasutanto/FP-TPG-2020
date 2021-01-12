@@ -253,6 +253,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieces:
   - {fileID: 7339279569034447259, guid: e8a7eae74dc004c43b4c91e4c626861e, type: 3}
+  - {fileID: 4602633269251634167, guid: 945ea22c0459eda47a34fc9a61883650, type: 3}
+  - {fileID: 8765370886689076618, guid: 09cce2003af6abf449df9bdd68a03426, type: 3}
+  - {fileID: 770799359414192412, guid: 2d0f0b2a2fddb4543afa28745d92c509, type: 3}
+  - {fileID: 5277771152752885983, guid: fe81ba0aad13d4e4590ed975f4d911f3, type: 3}
+  - {fileID: 111416050436214270, guid: 9583e99fdfa4ffd4babe39c46ef4344c, type: 3}
+  - {fileID: 6518870557868309299, guid: 3d3569de31dcfb548a13f6ec0ea740d7, type: 3}
   constructorPos: {fileID: 1458344434}
   grid: {fileID: 2123575607}
   moveTime: 0.5

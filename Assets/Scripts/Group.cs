@@ -16,6 +16,11 @@ public class Group : MonoBehaviour
     void Move(Vector2 moveDirection)
     {
         transform.position += new Vector3(moveDirection.x, moveDirection.y, 0);
+        RoundPosition();
+    }
+
+    void RoundPosition()
+    {
         Vector2 tempVector = RoundVector.RoundedVector(new Vector2(transform.position.x, transform.position.y));
         transform.position = new Vector3(tempVector.x, tempVector.y);
     }
@@ -23,12 +28,13 @@ public class Group : MonoBehaviour
     void Rotate(int rotateAmount)
     {
         transform.Rotate(0f, 0f, rotateAmount);
+        
         if(!isValidPosition())
         {
             transform.Rotate(0f, 0f, -rotateAmount);
         }
+        RoundPosition();
         /*
-        transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Round(transform.eulerAngles.z));
         for(int i = 0; i < blocks.Length; i++)
         {
             blocks[i].transform.Rotate(0f, 0f, -rotateAmount);
@@ -68,6 +74,7 @@ public class Group : MonoBehaviour
         for (int i = 0; i < blocks.Length; i++)
         {
             Vector2 tempVector = new Vector2(blocks[i].transform.position.x, blocks[i].transform.position.y);
+            tempVector = RoundVector.RoundedVector(tempVector);
             if (!grid.IsWithinAndEmpty(tempVector))
             {
                 return false;
