@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Group : MonoBehaviour
 {
-    [SerializeField] private GameObject[] blocks;
+    [SerializeField] public GameObject[] blocks;
     private bool isActive = true;
     private Grid grid;
 
@@ -27,6 +27,8 @@ public class Group : MonoBehaviour
         {
             Move(-moveDirection);
             // Tell the grid to land the piece.
+            grid.LandPiece(this);
+            isActive = false;
         }
     }
 
@@ -49,7 +51,7 @@ public class Group : MonoBehaviour
         for (int i = 0; i < blocks.Length; i++)
         {
             Vector2 tempVector = new Vector2(blocks[i].transform.position.x, blocks[i].transform.position.y);
-            if (!grid.IsWithinBoard(tempVector))
+            if (!grid.IsWithinAndEmpty(tempVector))
             {
                 return false;
             }
@@ -88,6 +90,8 @@ public class Group : MonoBehaviour
             {
                 Move(Vector2.up);
                 // Tell the grid to land the piece.
+                grid.LandPiece(this);
+                isActive = false;
             }
         }
 

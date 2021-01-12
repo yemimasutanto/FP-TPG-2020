@@ -6,12 +6,13 @@ public class Grid : MonoBehaviour
 {
     [SerializeField] private int width = 10;
     [SerializeField] private int height = 12;
-    [SerializeField] private Group[,] grid;
+    [SerializeField] private GameObject[,] grid;
+
+    [SerializeField] private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
-        grid = new Group[width, height];
-        Group example = grid[2, 3];
+        grid = new GameObject[width, height];
     }
 
     // Update is called once per frame
@@ -20,7 +21,47 @@ public class Grid : MonoBehaviour
         
     }
 
-    public bool IsWithinBoard(Vector2 boardPosition)
+    public void LandPiece(Group piece)
+    {
+        for (int i = 0; i < piece.blocks.Length; i++)
+        {
+            // Store each block in the grid.
+            StoreBlockInGrid(piece.blocks[i]);
+        }
+        if (gameManager)
+        {
+            gameManager.ConstructPiece();
+        }
+    }
+
+    void StoreBlockInGrid(GameObject block)
+    {
+        Vector2 intPosition = RoundVector.RoundedVector(new Vector2(block.transform.position.x, block.transform.position.y));
+        grid[(int)intPosition.x, (int)intPosition.y] = block;
+    }
+
+    public bool IsWithinAndEmpty(Vector2 boardPosition)
+    {
+        if (IsWithinBoard(boardPosition))
+        {
+            if (IsEmptySpot(boardPosition))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    bool IsEmptySpot(Vector2 boardPosition)
+    {
+        if (grid[(int)boardPosition.x, (int)boardPosition.y] == null)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    bool IsWithinBoard(Vector2 boardPosition)
     {
         // Is it within the x positions?
         if (boardPosition.x >= 0 && boardPosition.x < width)

@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         return possibleObjects[tempIndex];
     }
 
-    void ConstructPiece()
+    public void ConstructPiece()
     {
         GameObject temp = GetRandomObject(pieces);
         Vector2 tempPos = RoundVector.RoundedVector(constructorPos.position);
