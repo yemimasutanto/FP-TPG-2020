@@ -20,6 +20,13 @@ public class Group : MonoBehaviour
         transform.position = new Vector3(tempVector.x, tempVector.y);
     }
 
+    void Rotate(int rotateAmount)
+    {
+        var angles = transform.rotation.eulerAngles;
+        angles.z += rotateAmount;
+        transform.rotation = Quaternion.Euler(angles);
+    }
+
     public void GameManagerMove(Vector2 moveDirection)
     {
         Move(moveDirection);
@@ -67,6 +74,11 @@ public class Group : MonoBehaviour
             return;
         }
         
+        if(Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Rotate(90);
+        }
+
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             Move(Vector2.left);
