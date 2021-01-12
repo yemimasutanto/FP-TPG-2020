@@ -13,7 +13,7 @@ public class Group : MonoBehaviour
         grid = newGrid;
     }
 
-    private void Move(Vector2 moveDirection)
+    public void Move(Vector2 moveDirection)
     {
         transform.position += new Vector3(moveDirection.x, moveDirection.y, 0);
         Vector2 tempVector = RoundVector.RoundedVector(new Vector2(transform.position.x, transform.position.y));

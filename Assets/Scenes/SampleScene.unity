@@ -261,6 +261,7 @@ MonoBehaviour:
   - {fileID: 6518870557868309299, guid: 3d3569de31dcfb548a13f6ec0ea740d7, type: 3}
   constructorPos: {fileID: 1458344434}
   grid: {fileID: 2123575607}
+  moveTime: 1
 --- !u!1 &1458344433
 GameObject:
   m_ObjectHideFlags: 0
