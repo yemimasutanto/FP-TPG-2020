@@ -328,7 +328,7 @@ MonoBehaviour:
   - {fileID: 6518870557868309299, guid: 3d3569de31dcfb548a13f6ec0ea740d7, type: 3}
   constructorPos: {fileID: 1458344434}
   grid: {fileID: 2123575607}
-  moveTime: 0.5
+  moveTime: 1
 --- !u!114 &666862068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentScore: 0
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 744660309}
 --- !u!1 &744660307
 GameObject:
   m_ObjectHideFlags: 0
