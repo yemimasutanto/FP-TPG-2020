@@ -7,8 +7,12 @@ public class Grid : MonoBehaviour
     [SerializeField] private int width = 10;
     [SerializeField] private int height = 12;
     [SerializeField] private GameObject[,] grid;
-
+    [SerializeField] private int rowValue;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private ScoreManager scoreManager;
+
+    private int streak = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -107,8 +111,11 @@ public class Grid : MonoBehaviour
                 DeleteRow(i);
                 DecreaseRowsAbove(i + 1);
                 i--;
+                scoreManager.IncreaseScore(rowValue * streak);
+                streak += 1;
             }
         }
+        streak = 1;
     }
 
     void DeleteRow(int row)
