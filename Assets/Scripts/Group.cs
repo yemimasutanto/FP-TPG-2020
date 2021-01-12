@@ -22,9 +22,19 @@ public class Group : MonoBehaviour
 
     void Rotate(int rotateAmount)
     {
-        var angles = transform.rotation.eulerAngles;
-        angles.z += rotateAmount;
-        transform.rotation = Quaternion.Euler(angles);
+        transform.Rotate(0f, 0f, rotateAmount);
+        if(!isValidPosition())
+        {
+            transform.Rotate(0f, 0f, -rotateAmount);
+        }
+        /*
+        transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Round(transform.eulerAngles.z));
+        for(int i = 0; i < blocks.Length; i++)
+        {
+            blocks[i].transform.Rotate(0f, 0f, -rotateAmount);
+            blocks[i].transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Round(transform.eulerAngles.z));
+        }
+        */
     }
 
     public void GameManagerMove(Vector2 moveDirection)

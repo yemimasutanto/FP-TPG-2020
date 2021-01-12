@@ -98,7 +98,7 @@ public class Grid : MonoBehaviour
 
     void DecreaseRowsAbove(int row)
     {
-        for (int i = 0; i < height; i++)
+        for (int i = row; i < height; i++)
         {
             DecreaseRow(i);
         }
