@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         moveTimeSeconds -= Time.deltaTime;
         if (moveTimeSeconds <= 0f)
         {
-            currentGroup.Move(Vector2.down);
+            currentGroup.GameManagerMove(Vector2.down);
             moveTimeSeconds = moveTime;
         }
     }

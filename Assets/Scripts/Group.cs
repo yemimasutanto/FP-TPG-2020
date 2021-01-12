@@ -13,11 +13,21 @@ public class Group : MonoBehaviour
         grid = newGrid;
     }
 
-    public void Move(Vector2 moveDirection)
+    void Move(Vector2 moveDirection)
     {
         transform.position += new Vector3(moveDirection.x, moveDirection.y, 0);
         Vector2 tempVector = RoundVector.RoundedVector(new Vector2(transform.position.x, transform.position.y));
         transform.position = new Vector3(tempVector.x, tempVector.y);
+    }
+
+    public void GameManagerMove(Vector2 moveDirection)
+    {
+        Move(moveDirection);
+        if (!isValidPosition())
+        {
+            Move(-moveDirection);
+            // Tell the grid to land the piece.
+        }
     }
 
     // Start is called before the first frame update
@@ -77,6 +87,7 @@ public class Group : MonoBehaviour
             if (!isValidPosition())
             {
                 Move(Vector2.up);
+                // Tell the grid to land the piece.
             }
         }
 
