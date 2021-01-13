@@ -11,6 +11,21 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene(tempScene.name);
     }
 
+    public void PlayGame()
+    {
+        SceneManager.LoadScene("Main");
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void HowToPlay()
+    {
+        SceneManager.LoadScene("HowToPlay");
+    }
+
     public void QuitGame()
     {
         Application.Quit();

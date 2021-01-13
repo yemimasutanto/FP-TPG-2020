@@ -10,7 +10,8 @@ public class Grid : MonoBehaviour
     [SerializeField] private int rowValue;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private ScoreManager scoreManager;
-    [SerializeField] private int rowsPerLevel = 20;
+    [SerializeField] private LevelManager levelManager;
+    [SerializeField] private int rowsPerLevel = 1;
 
     private int streak = 1;
     private int numRows = 0;
@@ -107,6 +108,7 @@ public class Grid : MonoBehaviour
 
     void DeleteFullRows()
     {
+        int exp = 0;
         for (int i = 0; i < height; i++)
         {
             if (IsRowFull(i))
@@ -117,14 +119,19 @@ public class Grid : MonoBehaviour
                 scoreManager.IncreaseScore(rowValue * streak);
                 streak += 1;
                 numRows += 1;
+                exp++;
             }
         }
         streak = 1;
-        if(numRows / rowsPerLevel >= 1)
+        while (numRows / rowsPerLevel >= 1)
         {
-            numRows = 0;
+            numRows -= rowsPerLevel;
+            exp -= (numRows % rowsPerLevel + 1);
             gameManager.SpeedUp();
+            rowsPerLevel *= 2;
+            levelManager.LevelUp(rowsPerLevel);
         }
+        levelManager.getEXP(exp);
     }
 
     void DeleteRow(int row)
