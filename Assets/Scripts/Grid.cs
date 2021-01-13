@@ -35,6 +35,7 @@ public class Grid : MonoBehaviour
         {
             gameManager.ConstructPiece();
         }
+        CheckGameOver();
     }
 
     void StoreBlockInGrid(GameObject block)
@@ -146,5 +147,16 @@ public class Grid : MonoBehaviour
             }
         }
         return true;
+    }
+
+    void CheckGameOver()
+    {
+        for(int i = 0; i < width; i++)
+        {
+            if(grid[i, 20] != null)
+            {
+                gameManager.EndGame();
+            }
+        }
     }
 }
