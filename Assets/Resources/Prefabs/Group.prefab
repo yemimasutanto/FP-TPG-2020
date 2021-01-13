@@ -130,8 +130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blocks: []
-  moveDelay: 0.2
-  moveDelta: 0
+  moveDelay: 0.1
+  moveDelta: 0.05
 --- !u!1 &8884016548573888709
 GameObject:
   m_ObjectHideFlags: 0

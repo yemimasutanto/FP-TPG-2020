@@ -134,8 +134,8 @@ MonoBehaviour:
   - {fileID: 4602633269145990724}
   - {fileID: 4602633270853530058}
   - {fileID: 4602633270456661918}
-  moveDelay: 0.2
-  moveDelta: 0
+  moveDelay: 0.1
+  moveDelta: 0.05
 --- !u!1 &4602633270456661918
 GameObject:
   m_ObjectHideFlags: 0
