@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float moveTime;
     [SerializeField] private float speedUp;
     [SerializeField] private float minDelay;
+    [SerializeField] private GameObject gameLosePanel;
 
+    private bool canPlay = true;
     private List<GameObject> theBag = new List<GameObject>();
     private float moveTimeSeconds;
     private Group currentGroup = null;
@@ -18,6 +20,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        canPlay = true;
+        gameLosePanel.SetActive(false);
         FillBag();
         moveTimeSeconds = moveTime;
         ConstructPiece();
@@ -34,6 +38,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!canPlay)
+        {
+            return;
+        }
         moveTimeSeconds -= Time.deltaTime;
         if (moveTimeSeconds <= 0f)
         {
@@ -63,6 +71,10 @@ public class GameManager : MonoBehaviour
 
     public void ConstructPiece()
     {
+        if (!canPlay)
+        {
+            return;
+        }
         // GameObject temp = GetRandomObject(pieces);
         GameObject temp = GetRandomFromBag();
         Vector2 tempPos = RoundVector.RoundedVector(constructorPos.position);
@@ -78,5 +90,11 @@ public class GameManager : MonoBehaviour
         {
             moveTime = minDelay;
         }
+    }
+
+    public void EndGame()
+    {
+        gameLosePanel.SetActive(true);
+        canPlay = false;
     }
 }
