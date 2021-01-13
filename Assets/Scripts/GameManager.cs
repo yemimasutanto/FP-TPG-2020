@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
     GameObject GetRandomObject(GameObject[] possibleObjects)
     {
         if (possibleObjects.Length == 0) return null;
-        int tempIndex = UnityEngine.Random.Range(0, possibleObjects.Length);
+        int tempIndex = Random.Range(0, possibleObjects.Length);
         return possibleObjects[tempIndex];
     }
 
