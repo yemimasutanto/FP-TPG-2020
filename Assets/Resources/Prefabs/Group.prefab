@@ -129,6 +129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2913217d0e14e814fbcfd3d0f8a0da11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blocks: []
+  moveDelay: 0.2
+  moveDelta: 0
 --- !u!1 &8884016548573888709
 GameObject:
   m_ObjectHideFlags: 0

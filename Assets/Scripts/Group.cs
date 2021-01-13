@@ -9,7 +9,6 @@ public class Group : MonoBehaviour
     [SerializeField] private float moveDelta;
 
     private float moveDelayCounter;
-    private bool canMove = true;
     private bool isActive = true;
     private Grid grid;
 

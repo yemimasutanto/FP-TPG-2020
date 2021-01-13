@@ -380,3 +380,5 @@ MonoBehaviour:
   - {fileID: 770799357626680085}
   - {fileID: 770799359005803014}
   - {fileID: 770799357377121994}
+  moveDelay: 0.2
+  moveDelta: 0

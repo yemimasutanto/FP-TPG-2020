@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         {
             FillBag();
         }
-        int tempIndex = UnityEngine.Random.Range(0, theBag.Count);
+        int tempIndex = Random.Range(0, theBag.Count);
         GameObject tempObj = theBag[tempIndex];
         theBag.Remove(tempObj);
         return tempObj;

@@ -153,7 +153,7 @@ public class Grid : MonoBehaviour
     {
         for(int i = 0; i < width; i++)
         {
-            if(grid[i, 20] != null)
+            if(grid[i, 12] != null)
             {
                 gameManager.EndGame();
             }
