@@ -32,8 +32,8 @@ link download : https://public-cdn.cloud.unity3d.com/hub/prod/UnityHubSetup.exe?
 8. Selamat bermain
 
 ### B. Cara Gampang
-1. Kunjungi halaman berikut<br>
-```https://drive.google.com/file/d/1U1urohlZhZSeH84gqK1NnJ9lLdl6V0yC/view?usp=sharing```<br>
+1. Kunjungi halaman berikut
+https://drive.google.com/file/d/1U1urohlZhZSeH84gqK1NnJ9lLdl6V0yC/view?usp=sharing<br>
 2. Download zip tersebut<br>
 3. Unzip file dan cari file yang bernama "Pokemon Tetris.exe" lalu buka<br>
 4. Selamat bermain
